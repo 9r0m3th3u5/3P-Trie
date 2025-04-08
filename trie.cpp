@@ -7,6 +7,7 @@
  */
 
 #include "trie.h"
+#include <iostream>
 
 trie::trie() {
     root = new node();
