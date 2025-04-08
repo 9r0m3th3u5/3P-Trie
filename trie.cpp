@@ -29,6 +29,8 @@ void trie::insert(const std::string &s) {
 }
 
 bool trie::contains(const std::string &s) {
+    using namespace std;
+    
     node* current = root;
     for(char letter : s) {
         std::cout << (int)letter - 'a' << std::endl;
@@ -36,6 +38,7 @@ bool trie::contains(const std::string &s) {
         if(current == nullptr) {
             return false;
         }
+        cout << "huh" << endl;
     }
     return current->stop;
 }
