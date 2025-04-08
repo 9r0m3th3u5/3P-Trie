@@ -35,10 +35,9 @@ bool trie::contains(const std::string &s) {
     for(char letter : s) {
         std::cout << (int)letter - 'a' << std::endl;
         current = current->children[(int)letter - 'a'];
-        if(current == nullptr) {
+        if(current->children == nullptr) {
             return false;
         }
-        cout << "huh" << endl;
     }
     return current->stop;
 }
