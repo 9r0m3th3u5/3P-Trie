@@ -30,17 +30,12 @@ void trie::insert(const std::string &s) {
 
 bool trie::contains(const std::string &s) {
     node* current = root;
-    
     for(char letter : s) {
+        std::cout << (int)letter - 'a' << std::endl;
+        current = current->children[(int)letter - 'a'];
         if(current == nullptr) {
             return false;
         }
-
-        std::cout << "yo" << std::endl;
-
-        current = current->children[(int)letter - 'a'];
-
-        std::cout << "yo?" << std::endl;
     }
     return current->stop;
 }
@@ -48,10 +43,10 @@ bool trie::contains(const std::string &s) {
 bool trie::is_prefix(const std::string &s) {
     node* current = root;
     for(char letter : s) {
+        current = current->children[(int)letter - 'a'];
         if(current == nullptr) {
             return false;
         }
-        current = current->children[(int)letter - 'a'];
     }
     return true;
 }
