@@ -21,7 +21,7 @@ void trie::insert(const std::string &s) {
     node* current = root;
     for(char letter : s) {
         current = current->children[(int)letter - 'a'];
-        if(current->children == nullptr) {
+        if(current == nullptr || current->children == nullptr) {
             current = new node();
         }
     }
