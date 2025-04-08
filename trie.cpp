@@ -21,7 +21,7 @@ void trie::insert(const std::string &s) {
     node* current = root;
     for(char letter : s) {
         current = current->children[(int)letter - 'a'];
-        if(current == nullptr) {
+        if(current->children == nullptr) {
             current = new node();
         }
     }
@@ -29,11 +29,8 @@ void trie::insert(const std::string &s) {
 }
 
 bool trie::contains(const std::string &s) {
-    using namespace std;
-    
     node* current = root;
     for(char letter : s) {
-        std::cout << (int)letter - 'a' << std::endl;
         current = current->children[(int)letter - 'a'];
         if(current->children == nullptr) {
             return false;
@@ -46,7 +43,7 @@ bool trie::is_prefix(const std::string &s) {
     node* current = root;
     for(char letter : s) {
         current = current->children[(int)letter - 'a'];
-        if(current == nullptr) {
+        if(current->children == nullptr) {
             return false;
         }
     }
