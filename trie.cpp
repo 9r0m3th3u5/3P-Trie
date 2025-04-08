@@ -30,6 +30,9 @@ void trie::insert(const std::string &s) {
 
 bool trie::contains(const std::string &s) {
     node* current = root;
+
+    std::cout << "yo" << std::endl;
+    
     for(char letter : s) {
         if(current == nullptr) {
             return false;
