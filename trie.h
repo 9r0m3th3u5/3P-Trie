@@ -3,7 +3,7 @@
  *
  * Declaration of the trie class.
  * 
- * Author: <your name here>
+ * Author: Peter Gregory
  */
 
 #ifndef _TRIE_H
@@ -19,14 +19,26 @@
  */
 
 class trie {
+private:
+    struct node {
+        node();
+        ~node();
+        void extend(const std::string &prefix, std::vector<std::string> &result);
+
+        bool stop;
+        node** children;
+    };
+
+    node* root;
+
 public:
+    trie();
+    ~trie();
     void insert(const std::string &s);
     bool contains(const std::string &s);
     bool is_prefix(const std::string &s);
     void extend(const std::string &prefix, std::vector<std::string> &result);
-
-private:
-
+    node* get_root();
 };
 
 #endif
